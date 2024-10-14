@@ -2,6 +2,11 @@
 #define SCHEDULE_UTILS_H
 
 /**
+ * Define o nome do arquivo de saida que contera os dados persistidos
+ */
+#define OUTPUT_FILENAME "output.txt"
+
+/**
  * Define tamanho maximo da string nome do tutor
  */
 #define TUTOR_NAME_LENGTH 100
@@ -44,5 +49,11 @@ typedef struct schedule {
  char horary[HORARY_LENGTH];
  int time;
 } schedule;
+
+/**
+ * Salva os dados de um agendamento num arquivo de saida padrao
+ * @param schedule estrutura que contem os dados do agendamento
+ */
+void save_schedule(schedule *schedule);
 
 #endif //SCHEDULE_UTILS_H
