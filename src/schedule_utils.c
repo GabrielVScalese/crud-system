@@ -9,9 +9,9 @@ void save_schedule(schedule *schedule) {
 
     fprintf(
         file,
-        "Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Horario: %s | Tempo (horas): %d",
+        "Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Data: %s | Horario: %s | Tempo (horas): %d",
         schedule->tutor_name, schedule->pet_name, schedule->address, schedule->number, schedule->telephone,
-        schedule->breed, schedule->horary,
+        schedule->breed, schedule->date, schedule->horary,
         schedule->time);
 
     fclose(file);

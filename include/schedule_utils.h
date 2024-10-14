@@ -37,6 +37,11 @@
 #define BREED_LENGTH 30
 
 /**
+ * Define tamanho maximo da string date
+ */
+#define DATE_LENGTH 8
+
+/**
  * Estrutura para armazenar dados uteis de um agendamento por parte do pet sitter
  */
 typedef struct schedule {
@@ -46,6 +51,7 @@ typedef struct schedule {
  int number;
  char telephone[TELEPHONE_LENGTH];
  char breed[BREED_LENGTH];
+ char date[DATE_LENGTH];
  char horary[HORARY_LENGTH];
  int time;
 } schedule;
