@@ -19,27 +19,27 @@
 /**
  * Define tamanho maximo da string endereco do cliente
  */
-#define ADDRESS_LENGTH 30
+#define ADDRESS_LENGTH 100
 
 /**
  * Define tamanho maximo da string horario
  */
-#define HORARY_LENGTH 5
+#define HORARY_LENGTH 6
 
 /**
  * Define tamanho maximo da string telefone
  */
-#define TELEPHONE_LENGTH 11
+#define TELEPHONE_LENGTH 12
 
 /**
  * Define tamanho maximo da string raca
  */
-#define BREED_LENGTH 30
+#define BREED_LENGTH 100
 
 /**
  * Define tamanho maximo da string date
  */
-#define DATE_LENGTH 8
+#define DATE_LENGTH 11
 
 /**
  * Estrutura para armazenar dados uteis de um agendamento por parte do pet sitter
@@ -61,5 +61,12 @@ typedef struct schedule {
  * @param schedule estrutura que contem os dados do agendamento
  */
 void save_schedule(schedule *schedule);
+
+/**
+ * Printa uma lista de todos os agendamentos no console
+ * @param schedules uma lista de estrutura que contem os dados do agendamento
+ * @param quantity quantidade de elementos da lista 
+ */
+void list_schedules(schedule schedules[], int quantity);
 
 #endif //SCHEDULE_UTILS_H
