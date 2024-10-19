@@ -7,6 +7,11 @@
 #define OUTPUT_FILENAME "output.txt"
 
 /**
+ * Define o tamanho maximo da linha do arquivo de saida
+ */
+#define MAX_LINE_LENGTH 100
+
+/**
  * Define tamanho maximo da string nome do tutor
  */
 #define TUTOR_NAME_LENGTH 100
@@ -70,11 +75,17 @@ void save_schedule(schedule *schedule);
  */
 void list_schedules(schedule schedules[], int quantity);
 
-
 /**
  * Obtem o ID do ultimo cliente
  * @return ID do ultimo cliente
  */
 int get_last_id();
+
+/**
+ * Atualiza um agendamento (especificado pelo id) dentro da base de dados
+ * @param schedule informacoes atualizadas do agendamento
+ * @param schedule_id id do agendamento a ser atualizado
+ */
+void update_schedule(schedule *schedule, int schedule_id);
 
 #endif //SCHEDULE_UTILS_H
