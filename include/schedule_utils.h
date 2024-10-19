@@ -45,6 +45,7 @@
  * Estrutura para armazenar dados uteis de um agendamento por parte do pet sitter
  */
 typedef struct schedule {
+ int id;
  char tutor_name[TUTOR_NAME_LENGTH];
  char pet_name[PET_NAME_LENGTH];
  char address[ADDRESS_LENGTH];
@@ -68,5 +69,12 @@ void save_schedule(schedule *schedule);
  * @param quantity quantidade de elementos da lista 
  */
 void list_schedules(schedule schedules[], int quantity);
+
+
+/**
+ * Obtem o ID do ultimo cliente
+ * @return ID do ultimo cliente
+ */
+int get_last_id();
 
 #endif //SCHEDULE_UTILS_H
