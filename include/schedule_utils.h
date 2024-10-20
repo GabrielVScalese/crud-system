@@ -88,4 +88,10 @@ int get_last_id();
  */
 void update_schedule(schedule *schedule, int schedule_id);
 
+/**
+ * Deleta um agendamento (especificado pelo id) dentro da base de dados
+ * @param schedule_id id do agendamento a ser deletado
+ */
+void delete_schedule(int schedule_id);
+
 #endif //SCHEDULE_UTILS_H

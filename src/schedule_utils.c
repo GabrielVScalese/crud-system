@@ -73,3 +73,28 @@ void update_schedule(schedule *schedule, int schedule_id) {
     remove(OUTPUT_FILENAME);
     rename("temp.txt", OUTPUT_FILENAME);
 }
+
+void delete_schedule(int schedule_id) {
+    FILE *file = fopen(OUTPUT_FILENAME, "r");
+    FILE *temp = fopen("temp.txt", "w+");
+
+    if (file == NULL)
+        perror("Erro para abrir arquivo de saida!\n");
+
+    char file_line[MAX_LINE_LENGTH];
+    while (fgets(file_line, sizeof(file_line), file) != NULL) {
+        int id;
+        sscanf(file_line, "ID: %d", &id);
+
+        if (id == schedule_id)
+            continue;
+
+        fputs(temp, file_line);
+    }
+
+    fclose(file);
+    fclose(temp);
+
+    remove(OUTPUT_FILENAME);
+    rename("temp.txt", OUTPUT_FILENAME);
+}
