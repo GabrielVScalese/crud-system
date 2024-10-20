@@ -16,7 +16,7 @@ int get_last_id() {
 }
 
 void save_schedule(schedule *schedule) {
-    FILE *file = fopen(OUTPUT_FILENAME, "w+");
+    FILE *file = fopen(OUTPUT_FILENAME, "a+");
 
     if (file == NULL)
         perror("Erro para abrir arquivo de saida!\n");
