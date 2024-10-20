@@ -70,10 +70,8 @@ void save_schedule(schedule *schedule);
 
 /**
  * Printa uma lista de todos os agendamentos no console
- * @param schedules uma lista de estrutura que contem os dados do agendamento
- * @param quantity quantidade de elementos da lista 
  */
-void list_schedules(schedule schedules[], int quantity);
+void list_schedules();
 
 /**
  * Obtem o ID do ultimo cliente
