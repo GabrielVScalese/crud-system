@@ -8,8 +8,12 @@ int get_last_id() {
     if (file == NULL)
         return 1;
 
-    int id;
-    while (fscanf(file, "ID: %d", &id) != 1);
+    int id = 0;
+
+    char file_line[MAX_LINE_LENGTH];
+    while (fgets(file_line, sizeof(file_line), file) != NULL)
+        sscanf(file_line, "ID: %d", &id);
+
     fclose(file);
 
     return id;
@@ -23,7 +27,7 @@ void save_schedule(schedule *schedule) {
 
     fprintf(
         file,
-        "ID: %d | Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Data: %s | Horario: %s | Tempo (horas): %d",
+        "ID: %d | Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Data: %s | Horario: %s | Tempo (horas): %d\n",
         schedule->id,
         schedule->tutor_name, schedule->pet_name, schedule->address, schedule->number, schedule->telephone,
         schedule->breed, schedule->date, schedule->horary,
@@ -42,7 +46,7 @@ void list_schedules() {
     fclose(file);
 }
 
-void update_schedule(schedule *schedule, int schedule_id) {
+void update_schedule(schedule *schedule) {
     FILE *file = fopen(OUTPUT_FILENAME, "r");
     FILE *temp = fopen("temp.txt", "w+");
 
@@ -54,16 +58,16 @@ void update_schedule(schedule *schedule, int schedule_id) {
         int id;
         sscanf(file_line, "ID: %d", &id);
 
-        if (id == schedule_id)
+        if (schedule->id == id)
             fprintf(
                 temp,
-                "ID: %d | Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Data: %s | Horario: %s | Tempo (horas): %d",
+                "ID: %d | Nome do Tutor: %s | Nome do Pet: %s | Endereco: %s | Numero: %d | Telefone: %s | Raca: %s | Data: %s | Horario: %s | Tempo (horas): %d\n",
                 schedule->id,
                 schedule->tutor_name, schedule->pet_name, schedule->address, schedule->number, schedule->telephone,
                 schedule->breed, schedule->date, schedule->horary,
                 schedule->time);
         else
-            fputs(temp, file_line);
+            fputs(file_line, temp);
     }
 
     fclose(file);
@@ -88,7 +92,7 @@ void delete_schedule(int schedule_id) {
         if (id == schedule_id)
             continue;
 
-        fputs(temp, file_line);
+        fputs(file_line, temp);
     }
 
     fclose(file);

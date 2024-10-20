@@ -9,7 +9,7 @@
 /**
  * Define o tamanho maximo da linha do arquivo de saida
  */
-#define MAX_LINE_LENGTH 100
+#define MAX_LINE_LENGTH 1000
 
 /**
  * Define tamanho maximo da string nome do tutor
@@ -82,9 +82,8 @@ int get_last_id();
 /**
  * Atualiza um agendamento (especificado pelo id) dentro da base de dados
  * @param schedule informacoes atualizadas do agendamento
- * @param schedule_id id do agendamento a ser atualizado
  */
-void update_schedule(schedule *schedule, int schedule_id);
+void update_schedule(schedule *schedule);
 
 /**
  * Deleta um agendamento (especificado pelo id) dentro da base de dados
