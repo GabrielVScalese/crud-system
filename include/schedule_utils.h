@@ -29,12 +29,12 @@
 /**
  * Define tamanho maximo da string horario
  */
-#define HORARY_LENGTH 6
+#define HORARY_LENGTH 7
 
 /**
  * Define tamanho maximo da string telefone
  */
-#define TELEPHONE_LENGTH 12
+#define TELEPHONE_LENGTH 13
 
 /**
  * Define tamanho maximo da string raca
@@ -44,7 +44,7 @@
 /**
  * Define tamanho maximo da string date
  */
-#define DATE_LENGTH 11
+#define DATE_LENGTH 12
 
 /**
  * Estrutura para armazenar dados uteis de um agendamento por parte do pet sitter

@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include "../include/menu_utils.h"
 #include "../include/schedule_utils.h"
 
 void remove_new_line(char *str) {
@@ -13,17 +14,17 @@ schedule *get_schedule_from_input() {
 
     printf("Digite o nome do tutor do pet: ");
     fgets(one_schedule->tutor_name, sizeof(one_schedule->tutor_name), stdin);
-    remove_new_line(one_schedule->tutor_name); // Remove '\n'
+    remove_new_line(one_schedule->tutor_name);
 
     printf("Digite o nome do pet: ");
     fgets(one_schedule->pet_name, sizeof(one_schedule->pet_name), stdin);
-    remove_new_line(one_schedule->pet_name); // Remove '\n'
+    remove_new_line(one_schedule->pet_name);
 
     printf("Digite o endereco do cliente: ");
     fgets(one_schedule->address, sizeof(one_schedule->address), stdin);
-    remove_new_line(one_schedule->address); // Remove '\n'
+    remove_new_line(one_schedule->address);
 
-    char buffer[100];
+    char buffer[MAX_BUFFER_LENGTH];
 
     printf("Digite o numero do endereco: ");
     fgets(buffer, sizeof(buffer), stdin);

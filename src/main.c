@@ -1,7 +1,9 @@
-#include <stdio.h>
+#include "../include/menu_utils.h"
 
 int main() {
-    printf("Hello, World!\n");
+    int option;
+
+    menu(&option);
 
     return 0;
 }
