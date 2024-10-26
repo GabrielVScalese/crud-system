@@ -6,7 +6,7 @@ int get_last_id() {
     FILE *file = fopen(OUTPUT_FILENAME, "r");
 
     if (file == NULL)
-        return 1;
+        return 0;
 
     int id = 0;
 
@@ -38,6 +38,9 @@ void save_schedule(schedule *schedule) {
 
 void list_schedules() {
     FILE *file = fopen(OUTPUT_FILENAME, "r");
+
+    if (file == NULL)
+        perror("Erro para abrir arquivo de saida!\n");
 
     char file_line[MAX_LINE_LENGTH];
     while (fgets(file_line, sizeof(file_line), file) != NULL)
