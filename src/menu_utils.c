@@ -12,6 +12,12 @@ void remove_new_line(char *str) {
 schedule *get_schedule_from_input() {
     schedule *one_schedule = malloc(sizeof(schedule));
 
+    // Verificação de alocação de memória
+    if (one_schedule == NULL) {
+        fprintf(stderr, "Erro ao alocar memória para o agendamento.\n");
+        exit(1);
+    }
+
     printf("Digite o nome do tutor do pet: ");
     fgets(one_schedule->tutor_name, sizeof(one_schedule->tutor_name), stdin);
     remove_new_line(one_schedule->tutor_name);
@@ -62,6 +68,8 @@ void add_client() {
     save_schedule(schedule);
 
     printf("\nCliente salvo com sucesso!\n\n");
+
+    free(schedule);
 }
 
 void list_clients() {
@@ -97,6 +105,7 @@ void update_client() {
     update_schedule(schedule);
 
     printf("\nCliente alterado com sucesso!\n\n");
+    free(schedule);
 }
 
 void delete_client() {
